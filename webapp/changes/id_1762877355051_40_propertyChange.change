@@ -1,0 +1,41 @@
+{
+    "fileName": "id_1762877355051_40_propertyChange",
+    "fileType": "change",
+    "changeType": "propertyChange",
+    "moduleName": "",
+    "reference": "valgroup.com.zui5mapaprint",
+    "packageName": "",
+    "content": {
+        "property": "width",
+        "newValue": "150px"
+    },
+    "selector": {
+        "id": "valgroup.com.zui5mapaprint::sap.suite.ui.generic.template.ListReport.view.ListReport::mapa--listReport-IsMapaOk",
+        "idIsLocal": false,
+        "type": "sap.m.Column"
+    },
+    "layer": "CUSTOMER_BASE",
+    "texts": {},
+    "namespace": "apps/valgroup.com.zui5mapaprint/changes/",
+    "projectId": "",
+    "creation": 1762877355051,
+    "originalLanguage": "",
+    "support": {
+        "generator": "changeUtils: SAPFioriTools",
+        "service": "",
+        "user": "",
+        "sapui5Version": "1.84.50",
+        "sourceChangeFileName": "",
+        "compositeCommand": ""
+    },
+    "oDataInformation": {},
+    "dependentSelector": {},
+    "validAppVersions": {
+        "from": "0.0.1",
+        "to": "0.0.1",
+        "creation": "0.0.1"
+    },
+    "jsOnly": false,
+    "variantReference": "",
+    "appDescriptorChange": false
+}

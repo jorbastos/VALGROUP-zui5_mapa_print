@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: valgroup.com.zui5mapaprint
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://appdesenv.valgroupco.com/
+          client: '120'
+        app:
+          name: ZUI5_MAPA_PRINT
+          description: Version 1.0
+          package: ZEWM_MAPA_CARREGAMENTO
+          transport: S4DK948722
+        exclude:
+          - /test/

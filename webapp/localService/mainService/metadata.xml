@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://appdesenv.valgroupco.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://appdesenv.valgroupco.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://appdesenv.valgroupco.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://appdesenv.valgroupco.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://appdesenv.valgroupco.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://appdesenv.valgroupco.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://appdesenv.valgroupco.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://appdesenv.valgroupco.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://appdesenv.valgroupco.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zsdui_ewm_c_mapa_carrega_print" xml:lang="pt" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="C_QM_DelivDocVHType" sap:label="Entradas possíveis para documento de remessa" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DeliveryDocument"/>
+                </Key>
+                <Property Name="DeliveryDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Remessa"/>
+                <Property Name="ShippingPoint" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Local expedição" sap:quickinfo="Local de expedição/ponto de recebimento"/>
+                <Property Name="ShipToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Recebedor mercadoria"/>
+                <Property Name="DeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data remessa"/>
+            </EntityType>
+            <EntityType Name="C_SDDocumentVHType" sap:label="Entradas possíveis de documento SD" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesDocument"/>
+                </Key>
+                <Property Name="SalesDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento de vendas"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Emissor da ordem"/>
+                <Property Name="SalesDocumentDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data do documento" sap:quickinfo="Data do documento (data de entrada/saída)"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Organização vendas" sap:quickinfo="Organização de vendas"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Canal distribuição" sap:quickinfo="Canal de distribuição"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Setor de atividade"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Criado em" sap:quickinfo="Data de criação do registro"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Criado por" sap:quickinfo="Nome do responsável que criou o objeto"/>
+            </EntityType>
+            <EntityType Name="printersType" sap:label="Lista de Impressoras" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Padest"/>
+                </Key>
+                <Property Name="Padest" Type="Edm.String" Nullable="false" MaxLength="4" sap:text="Pastandort"/>
+                <Property Name="Pastandort" Type="Edm.String" MaxLength="64" sap:label="Localização" sap:quickinfo="Spool: localização e denominação de um dispositivo de saída"/>
+            </EntityType>
+            <EntityType Name="mapaType" sap:label="Impressão de mapa de carregamento" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NodeID"/>
+                </Key>
+                <Property Name="pdf_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="print_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NodeID" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="ParentNodeID" Type="Edm.String" MaxLength="18"/>
+                <Property Name="HierarchyLevel" Type="Edm.Int32"/>
+                <Property Name="DrillState" Type="Edm.String" MaxLength="10"/>
+                <Property Name="TuNum" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Nº int.UT" sap:quickinfo="Nº interno da unidade de transporte"/>
+                <Property Name="TuNumChar" Type="Edm.String" MaxLength="18"/>
+                <Property Name="Docid" Type="Edm.String" MaxLength="32"/>
+                <Property Name="Hu" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Lgnum" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Nº do depósito" sap:quickinfo="Nº do depósito/complexo de depósito"/>
+                <Property Name="Tanum" Type="Edm.String" MaxLength="12" sap:label="Tarefa de depósito"/>
+                <Property Name="UT" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Unid.transporte" sap:quickinfo="Unidade de transporte"/>
+                <Property Name="Remessa" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Remessa" sap:value-list="standard"/>
+                <Property Name="Ov" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento de vendas" sap:value-list="standard"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Nº do material"/>
+                <Property Name="Lote" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Lote" sap:quickinfo="Número do lote"/>
+                <Property Name="PesoLiqConv" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="UnitPesoLiqConv" sap:label="Peso total" sap:quickinfo="Peso total da unidade comercial"/>
+                <Property Name="UnitPesoLiqConv" Type="Edm.String" MaxLength="3" sap:label="Unidade de peso" sap:semantics="unit-of-measure"/>
+                <Property Name="PesoLiq" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="UnitPesoLiq" sap:label="Peso Líquido"/>
+                <Property Name="UnitPesoLiq" Type="Edm.String" MaxLength="3" sap:label="Unidade de peso" sap:semantics="unit-of-measure"/>
+                <Property Name="PesoBrutoConv" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="UnitPesoBrutoConv" sap:label="Peso total" sap:quickinfo="Peso total da unidade comercial"/>
+                <Property Name="UnitPesoBrutoConv" Type="Edm.String" MaxLength="3" sap:label="Unidade de peso" sap:semantics="unit-of-measure"/>
+                <Property Name="PesoBruto" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="UnitPesoBruto" sap:label="Peso Bruto"/>
+                <Property Name="UnitPesoBruto" Type="Edm.String" MaxLength="3" sap:label="Unidade de peso" sap:semantics="unit-of-measure"/>
+                <Property Name="TaraConv" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="UnitTaraConv" sap:label="Tara UC" sap:quickinfo="Tara da unidade comercial"/>
+                <Property Name="UnitTaraConv" Type="Edm.String" MaxLength="3" sap:label="Unidade de peso" sap:semantics="unit-of-measure"/>
+                <Property Name="Tara" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="UnitTara"/>
+                <Property Name="UnitTara" Type="Edm.String" MaxLength="3" sap:label="Unidade de peso" sap:semantics="unit-of-measure"/>
+                <Property Name="QtdUCs" Type="Edm.Byte" sap:label="Qtd Pallets"/>
+                <Property Name="IsMapaOk" Type="Edm.String" MaxLength="1" sap:text="MapaText" sap:label="Mapa Configurado?"/>
+                <Property Name="IsPesoOk" Type="Edm.String" MaxLength="1" sap:text="PesoText" sap:label="Limite de Peso OK?"/>
+                <Property Name="MapaText" Type="Edm.String" MaxLength="60"/>
+                <Property Name="PesoText" Type="Edm.String" MaxLength="60"/>
+                <Property Name="MapaCriticality" Type="Edm.Byte"/>
+                <Property Name="PesoCriticality" Type="Edm.Byte"/>
+                <NavigationProperty Name="to_ordem" Relationship="cds_zsdui_ewm_c_mapa_carrega_print.assoc_957718529EE0FFDC159F8C1B08B94B4F" FromRole="FromRole_assoc_957718529EE0FFDC159F8C1B08B94B4F" ToRole="ToRole_assoc_957718529EE0FFDC159F8C1B08B94B4F"/>
+                <NavigationProperty Name="to_remessa" Relationship="cds_zsdui_ewm_c_mapa_carrega_print.assoc_C638621D8966315592ECB3E536AA16E7" FromRole="FromRole_assoc_C638621D8966315592ECB3E536AA16E7" ToRole="ToRole_assoc_C638621D8966315592ECB3E536AA16E7"/>
+            </EntityType>
+            <EntityType Name="ordemType" sap:label="Mapa - Ordens de Venda por UT" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TuNum"/>
+                    <PropertyRef Name="Ov"/>
+                </Key>
+                <Property Name="TuNum" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Nº int.UT" sap:quickinfo="Nº interno da unidade de transporte"/>
+                <Property Name="Ov" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento de vendas"/>
+            </EntityType>
+            <EntityType Name="remessaType" sap:label="Mapa - Remessas por UT" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TuNum"/>
+                    <PropertyRef Name="Remessa"/>
+                </Key>
+                <Property Name="TuNum" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Nº int.UT" sap:quickinfo="Nº interno da unidade de transporte"/>
+                <Property Name="Remessa" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Remessa"/>
+            </EntityType>
+            <ComplexType Name="ZEWM_A_DOWNLOADFILERESULT">
+                <Property Name="file_content" Type="Edm.String" sap:label="Conteúdo doc."/>
+                <Property Name="file_name" Type="Edm.String" MaxLength="100" sap:label="Nome do arquivo"/>
+                <Property Name="file_size" Type="Edm.Int32"/>
+                <Property Name="mime_type" Type="Edm.String" MaxLength="200" sap:label="TIPO MIME"/>
+            </ComplexType>
+            <ComplexType Name="DummyFunctionImportResult">
+                <Property Name="IsInvalid" Type="Edm.Boolean" sap:label="Verdadeiro"/>
+            </ComplexType>
+            <Association Name="assoc_C638621D8966315592ECB3E536AA16E7" sap:content-version="1">
+                <End Type="cds_zsdui_ewm_c_mapa_carrega_print.mapaType" Multiplicity="1" Role="FromRole_assoc_C638621D8966315592ECB3E536AA16E7"/>
+                <End Type="cds_zsdui_ewm_c_mapa_carrega_print.remessaType" Multiplicity="1" Role="ToRole_assoc_C638621D8966315592ECB3E536AA16E7"/>
+            </Association>
+            <Association Name="assoc_957718529EE0FFDC159F8C1B08B94B4F" sap:content-version="1">
+                <End Type="cds_zsdui_ewm_c_mapa_carrega_print.mapaType" Multiplicity="1" Role="FromRole_assoc_957718529EE0FFDC159F8C1B08B94B4F"/>
+                <End Type="cds_zsdui_ewm_c_mapa_carrega_print.ordemType" Multiplicity="1" Role="ToRole_assoc_957718529EE0FFDC159F8C1B08B94B4F"/>
+            </Association>
+            <EntityContainer Name="cds_zsdui_ewm_c_mapa_carrega_print_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="C_QM_DelivDocVH" EntityType="cds_zsdui_ewm_c_mapa_carrega_print.C_QM_DelivDocVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_SDDocumentVH" EntityType="cds_zsdui_ewm_c_mapa_carrega_print.C_SDDocumentVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="printers" EntityType="cds_zsdui_ewm_c_mapa_carrega_print.printersType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="mapa" EntityType="cds_zsdui_ewm_c_mapa_carrega_print.mapaType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ordem" EntityType="cds_zsdui_ewm_c_mapa_carrega_print.ordemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="remessa" EntityType="cds_zsdui_ewm_c_mapa_carrega_print.remessaType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_C638621D8966315592ECB3E536AA16E7" Association="cds_zsdui_ewm_c_mapa_carrega_print.assoc_C638621D8966315592ECB3E536AA16E7" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="mapa" Role="FromRole_assoc_C638621D8966315592ECB3E536AA16E7"/>
+                    <End EntitySet="remessa" Role="ToRole_assoc_C638621D8966315592ECB3E536AA16E7"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_957718529EE0FFDC159F8C1B08B94B4F" Association="cds_zsdui_ewm_c_mapa_carrega_print.assoc_957718529EE0FFDC159F8C1B08B94B4F" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="mapa" Role="FromRole_assoc_957718529EE0FFDC159F8C1B08B94B4F"/>
+                    <End EntitySet="ordem" Role="ToRole_assoc_957718529EE0FFDC159F8C1B08B94B4F"/>
+                </AssociationSet>
+                <FunctionImport Name="pdf" ReturnType="cds_zsdui_ewm_c_mapa_carrega_print.ZEWM_A_DOWNLOADFILERESULT" m:HttpMethod="POST" sap:action-for="cds_zsdui_ewm_c_mapa_carrega_print.mapaType" sap:applicable-path="pdf_ac">
+                    <Parameter Name="NodeID" Type="Edm.String" Mode="In" MaxLength="100"/>
+                </FunctionImport>
+                <FunctionImport Name="print" ReturnType="cds_zsdui_ewm_c_mapa_carrega_print.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zsdui_ewm_c_mapa_carrega_print.mapaType" sap:applicable-path="print_ac">
+                    <Parameter Name="NodeID" Type="Edm.String" Mode="In" MaxLength="100"/>
+                    <Parameter Name="Padest" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="cds_zsdui_ewm_c_mapa_carrega_print.mapaType/Remessa" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="C_QM_DelivDocVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Remessa"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryDocument"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ShippingPoint"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ShipToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryDate"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsdui_ewm_c_mapa_carrega_print.mapaType/Ov" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="C_SDDocumentVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Ov"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesDocument"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesDocumentDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OrganizationDivision"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CreationDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CreatedByUser"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsdui_ewm_c_mapa_carrega_print.cds_zsdui_ewm_c_mapa_carrega_print_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsdui_ewm_c_mapa_carrega_print.cds_zsdui_ewm_c_mapa_carrega_print_Entities/mapa" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>pdf_ac</PropertyPath>
+                                <PropertyPath>print_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>pdf_ac</PropertyPath>
+                                <PropertyPath>print_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://appdesenv.valgroupco.com/sap/opu/odata/sap/ZSBUI_EWM_MAPA_PRINT_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://appdesenv.valgroupco.com/sap/opu/odata/sap/ZSBUI_EWM_MAPA_PRINT_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
