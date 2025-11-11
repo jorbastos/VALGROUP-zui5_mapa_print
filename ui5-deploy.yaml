@@ -15,7 +15,7 @@ builder:
       configuration:
         target:
           url: https://appdesenv.valgroupco.com/
-          client: '120'
+          client: '100'
         app:
           name: ZUI5_MAPA_PRINT
           description: Version 1.0
