@@ -35,10 +35,9 @@ sap.ui.define([
             }
 
             for (var i = 0; i < oToolbarContent.length; i++) {
+            // O Botão da Ação 'Print' é controlado pelo Behavior do Serviço, na classe ZBP_EWM_R_MAPA_CARREGA_PRINT
+            // Aqui só controlamos o botão da Ação 'PDFCreate'
                 if (oToolbarContent[i].sId.includes('mapa--PDFCreateButton')) {
-                    oToolbarContent[i].setEnabled(sActionsEnabled);
-                }
-                if (oToolbarContent[i].sId.includes('mapa--action::cds_zsdui_ewm_c_mapa_carrega_print.cds_zsdui_ewm_c_mapa_carrega_print_Entities::print')) {
                     oToolbarContent[i].setEnabled(sActionsEnabled);
                 }
             }
