@@ -26,7 +26,7 @@ sap.ui.define([
                 oToolbarContent = this.getView().byId(this.getView().getId() + '--listReport').getToolbar().getContent(),
                 oContextSelected = this.extensionAPI.getSelectedContexts();
 
-            if (oContextSelected) {
+            if (oContextSelected && oContextSelected.length > 0) {
                 let sPath = oContextSelected[0].getPath(),
                     sObjeto = oModel.getProperty(sPath);
                 if (oContextSelected.length > 0 && sObjeto.IsMapaOk === 'S' && sObjeto.IsPesoOk === 'S') {
@@ -35,8 +35,8 @@ sap.ui.define([
             }
 
             for (var i = 0; i < oToolbarContent.length; i++) {
-            // O Botão da Ação 'Print' é controlado pelo Behavior do Serviço, na classe ZBP_EWM_R_MAPA_CARREGA_PRINT
-            // Aqui só controlamos o botão da Ação 'PDFCreate'
+                // O Botão da Ação 'Print' é controlado pelo Behavior do Serviço, na classe ZBP_EWM_R_MAPA_CARREGA_PRINT
+                // Aqui só controlamos o botão da Ação 'PDFCreate'
                 if (oToolbarContent[i].sId.includes('mapa--PDFCreateButton')) {
                     oToolbarContent[i].setEnabled(sActionsEnabled);
                 }
@@ -68,11 +68,23 @@ sap.ui.define([
         },
 
         onBeforeRebindTableExtension: function (oEvent) {
-            const oBindingParams = oEvent.getParameter("bindingParams");
+            let oBindingParams = oEvent.getParameter("bindingParams");
 
             oBindingParams.parameters = oBindingParams.parameters || {};
-            // use this when you want to fetch the whole tree at once
-            oBindingParams.parameters.operationMode = "Client";
+
+            // let qtdFiltrosAplicados = this.byId(oEvent.getSource().getSmartFilterId()).getAllFiltersWithValues().length;
+
+            // if (oEvent.getSource().getTable().getRows()
+            //     && oEvent.getSource().getTable().getRows().length > 0
+            //     && qtdFiltrosAplicados
+            //     && qtdFiltrosAplicados > 0) {
+            //     // Das próximas vezes, apenas filtra os dados já carregados.
+            //     oBindingParams.parameters.operationMode = "Client";
+            // } else {
+            //     // Da primeira vez, busca toda a Base de Dados do Servidor de acordo com o critério de seleção
+            //     oBindingParams.parameters.operationMode = "Server";
+            // }
+
             oBindingParams.parameters.treeAnnotationProperties = {
                 hierarchyLevelFor: "HierarchyLevel",
                 hierarchyNodeFor: "NodeID",
@@ -84,6 +96,7 @@ sap.ui.define([
             oBindingParams.parameters.numberOfExpandedLevels = 0;
             // Para TreeTable continuar Colapsado após Filtro
             oEvent.getSource().getTable().collapseAll();
+
         },
 
         PDFCreate: function (oEvent) {

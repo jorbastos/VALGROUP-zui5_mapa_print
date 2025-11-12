@@ -118,10 +118,10 @@
                 "Actions": {
                   "PDFCreate": {
                     "id": "PDFCreateButton",
-                    "text":  "{i18n>pdfButtonText}",
+                    "text": "{i18n>pdfButtonText}",
                     "press": "PDFCreate",
                     "requiresSelection": true
-                  }                  
+                  }
                 }
               }
             }
@@ -152,7 +152,10 @@
               "dateSettings": {
                 "useDateRange": true
               }
-            },
+            },   
+            "dataLoadSettings": {
+              "loadDataOnAppLaunch": "always"
+            },                                  
             "tableSettings": {
               "type": "TreeTable"
             }
