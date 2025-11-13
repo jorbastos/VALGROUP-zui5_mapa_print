@@ -152,10 +152,7 @@
               "dateSettings": {
                 "useDateRange": true
               }
-            },   
-            "dataLoadSettings": {
-              "loadDataOnAppLaunch": "always"
-            },                                  
+            },                                     
             "tableSettings": {
               "type": "TreeTable"
             }

@@ -72,19 +72,7 @@ sap.ui.define([
 
             oBindingParams.parameters = oBindingParams.parameters || {};
 
-            // let qtdFiltrosAplicados = this.byId(oEvent.getSource().getSmartFilterId()).getAllFiltersWithValues().length;
-
-            // if (oEvent.getSource().getTable().getRows()
-            //     && oEvent.getSource().getTable().getRows().length > 0
-            //     && qtdFiltrosAplicados
-            //     && qtdFiltrosAplicados > 0) {
-            //     // Das próximas vezes, apenas filtra os dados já carregados.
-            //     oBindingParams.parameters.operationMode = "Client";
-            // } else {
-            //     // Da primeira vez, busca toda a Base de Dados do Servidor de acordo com o critério de seleção
-            //     oBindingParams.parameters.operationMode = "Server";
-            // }
-
+            // Configurações para TreeTable
             oBindingParams.parameters.treeAnnotationProperties = {
                 hierarchyLevelFor: "HierarchyLevel",
                 hierarchyNodeFor: "NodeID",
