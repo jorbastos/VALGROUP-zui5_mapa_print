@@ -19,6 +19,8 @@ server:
           - path: /sap
             url: https://appdesenv.valgroupco.com
             client: '120'
+            #url: https://appqas.valgroupco.com/
+            #client: '200'
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
